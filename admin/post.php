@@ -118,6 +118,33 @@ require_once './layouts/header.php';
                                 </div>
                             </div>
                         </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Select State</h3>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" name="blog_state" required>
+                                            <option selected="selected">Select Category</option>
+                                            <?php
+                                            $stmt = $conn->query('SELECT * FROM states order by id ');
+                                            $stmt->execute();
+
+                                            while($state = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+
+                                                ?>
+                                                <option value="<?=$state['id']?>"><?=ucwords($state['name'])?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">

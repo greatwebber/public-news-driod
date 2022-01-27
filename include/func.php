@@ -120,6 +120,9 @@ if(isset($_POST['register'])){
     $full_name = $_POST['full_name'];
     $acct_email = $_POST['acct_email'];
     $acct_password = $_POST['acct_password'];
+    $acct_gender = $_POST['acct_gender'];
+    $acct_state = $_POST['acct_state'];
+
 
     $usersVerified = "SELECT * FROM users WHERE acct_email=:acct_email";
     $stmt = $conn->prepare($usersVerified);
@@ -130,12 +133,14 @@ if(isset($_POST['register'])){
     if($stmt->rowCount() >0){
         notify_alert('Email Already Exit','danger','3000','close');
     }else {
-        $registered = "INSERT INTO users (full_name,acct_email,acct_password) VALUES(:full_name,:acct_email,:acct_password)";
+        $registered = "INSERT INTO users (full_name,acct_email,acct_password,acct_gender,acct_state) VALUES(:full_name,:acct_email,:acct_password,:acct_gender,:acct_state)";
         $reg = $conn->prepare($registered);
         $reg->execute([
             'full_name' => $full_name,
             'acct_email' => $acct_email,
-            'acct_password' => password_hash((string)$acct_password, PASSWORD_BCRYPT)
+            'acct_password' => password_hash((string)$acct_password, PASSWORD_BCRYPT),
+            'acct_gender'=>$acct_gender,
+            'acct_state'=>$acct_state
         ]);
 
 
@@ -159,6 +164,7 @@ if (isset($_POST['addPost'])){
     @$draft = $_POST['draft'];
     $blog_id = uniqid();
     $blog_author = $_POST['blog_author'];
+    $blog_state = $_POST['blog_state'];
 
     if($featured === null){
         $featuredsec = '0';
@@ -190,7 +196,7 @@ if (isset($_POST['addPost'])){
     }
     if (move_uploaded_file($file['tmp_name'], $destination)) {
 
-        $stmt = $conn->prepare('INSERT INTO blogs (blog_id, title, post, categories,blog_author, tags,featured,blog_status, featured_image) VALUES (:blog_id,:title,:post,:categories,:blog_author,:tags,:featured,:blog_status,:featured_image)');
+        $stmt = $conn->prepare('INSERT INTO blogs (blog_id, title, post, categories,blog_author, tags,featured,blog_state,blog_status, featured_image) VALUES (:blog_id,:title,:post,:categories,:blog_author,:tags,:featured,:blog_state,:blog_status,:featured_image)');
         $stmt->execute([
             'blog_id' => $blog_id,
             'title' => $title,
@@ -200,6 +206,7 @@ if (isset($_POST['addPost'])){
             'tags' => $tags,
             'blog_status' => $blog_status,
             'featured'=>$featuredsec,
+            'blog_state'=>$blog_state,
             'featured_image' => $n
 
         ]);

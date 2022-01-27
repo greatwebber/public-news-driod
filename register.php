@@ -40,6 +40,32 @@ require_once './layouts/header.php';
             <label for="password"><i class="lni lni-lock"></i></label>
             <input class="input-psswd form-control" id="registerPassword" type="password" name="acct_password" placeholder="Password">
         </div>
+
+        <div class="form-group text-left mb-4">
+            <label for=""><i class="lni lni-users"></i></label>
+            <select name="acct_gender" id="" class="form-control" required>
+                <option selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group text-left mb-4">
+            <label for=""><i class="lni lni-car"></i></label>
+            <select name="acct_state" id="" class="form-control" required>
+                <option selected>Select State</option>
+                <?php
+                $stmt = $conn->query('SELECT * FROM states order by id');
+                $stmt->execute();
+                
+                while ($state = $stmt->fetch(PDO::FETCH_ASSOC)){
+                ?>
+                <option value="<?=$state['id']?>"><?=ucwords($state['name'])?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
         <button class="btn btn-primary btn-lg w-100" name="register">Register Now</button>
     </form>
 </div>
