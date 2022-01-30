@@ -158,7 +158,7 @@ if(isset($_POST['register'])){
         'acct_email'=>$acct_email
     ]);
 
-    if($stmt->rowCount() >0){
+    if($stmt->rowCount() > 0){
         notify_alert('Email Already Exit','danger','3000','close');
     }else {
         $registered = "INSERT INTO users (full_name,acct_email,acct_password,acct_gender,acct_state) VALUES(:full_name,:acct_email,:acct_password,:acct_gender,:acct_state)";
@@ -225,13 +225,14 @@ if (isset($_POST['addPost'])){
     }
     if (move_uploaded_file($file['tmp_name'], $destination)) {
 
-        $stmt = $conn->prepare('INSERT INTO blogs (blog_id, title, post, categories,blog_author, tags,featured,blog_state,blog_status, featured_image) VALUES (:blog_id,:title,:post,:categories,:blog_author,:tags,:featured,:blog_state,:blog_status,:featured_image)');
+        $stmt = $conn->prepare('INSERT INTO blogs (blog_id, title, post, categories,blog_author,blog_author_id, tags,featured,blog_state,blog_status, featured_image) VALUES (:blog_id,:title,:post,:categories,:blog_author,:blog_author_id,:tags,:featured,:blog_state,:blog_status,:featured_image)');
         $stmt->execute([
             'blog_id' => $blog_id,
             'title' => $title,
             'post' => $post,
             'categories' => $categories,
             'blog_author'=>$blog_author,
+            'blog_author_id'=>$blog_author_id,
             'tags' => $tags,
             'blog_status' => $blog_status,
             'featured'=>$featuredsec,

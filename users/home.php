@@ -36,7 +36,7 @@ require_once './layouts/header.php';
                             <div class="video-icon"><i class="lni lni-play"></i></div>
                             <a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
                             <a class="post-catagory" href="catagory.html"><?=$check['category_name']?></a>
-                            <a class="post-title d-block" href="./blog?id=<?=$check['blog_id']?>"><?=ucwords(substr($check['post'],0,50))?></a>
+                            <a class="post-title d-block" href="./blog?id=<?=$check['blog_id']?>"><?=ucwords(substr($check['title'],0,50))?></a>
                             <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 lni lni-user"></i><?=ucwords($check['blog_author'])?></a>
                                 <a href="./home#"><i class="mr-1 lni lni-calendar"></i><?=date('d M',strtotime($check['createdAt']))?></a><span><i class="mr-1 lni lni-bar-chart"></i>4 min read</span></div>
                         </div>

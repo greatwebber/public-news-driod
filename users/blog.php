@@ -1,6 +1,8 @@
 <?php
-$page_title = "Blog Details";
 require_once '../include/config.php';
+
+$page_title = user_details('name')." News";
+
 
 if(!$_GET['id']){
     redirect('./home.php');
@@ -12,6 +14,7 @@ $id = $_GET['id'];
 $stmt = $conn->query("SELECT b.title,b.post,b.blog_author,b.blog_author_id,b.categories,b.featured_image,b.createdAt,c.category_name, u.acct_image FROM blogs b left join categories c on b.categories=c.category_id left join users u on b.blog_author_id = u.id  where b.blog_id = '$id' ");
 $stmt->execute();
 $blog = $stmt->fetch(PDO::FETCH_ASSOC);
+$categories = $blog['categories'];
 
 if($blog['blog_author'] === "admin"){
     $blog_img = "profile-avatar.png";
@@ -88,17 +91,29 @@ require_once './layouts/headerMain.php';
         <div class="container">
             <!-- Single Trending Post-->
             <?php
-            $stmt = $conn->query("SELECT b.title, b.featured_image,b.blog_id, b.createdAt,c.category_name FROM blogs b left join categories c on b.categories = c.category_id where b.blog_id !='$id' and b.blog_state = '$user_state' order by b.id desc limit 3");
+            $stmt = $conn->query("SELECT b.title, b.featured_image,b.blog_id, b.createdAt,c.category_name FROM blogs b left join categories c on b.categories = c.category_id where b.blog_id !='$id' and b.blog_state = '$user_state' and b.categories='$categories' order by b.id desc limit 3");
             $stmt->execute();
             
             while ($relatedPost = $stmt->fetch(PDO::FETCH_ASSOC)){
             ?>
-            <div class="single-trending-post d-flex">
-                <div class="post-thumbnail"><img src="../assets/img/post/<?=$relatedPost['featured_image']?>" alt=""></div>
-                <div class="post-content"><a class="post-title" href="./blog?id=<?=$relatedPost['blog_id']?>"><?=$relatedPost['title']?></a>
-                        <div class="post-meta d-flex align-items-center"><a href="catagory.html"><?=$relatedPost['category_name']?></a><a href="#"><?=date('d M y',strtotime($relatedPost['createdAt']))?></a></div>
-                </div>
-            </div>
+                <?php
+                if(!empty($relatedPost)){
+                ?>
+                    <div class="single-trending-post d-flex">
+                        <div class="post-thumbnail"><img src="../assets/img/post/<?=$relatedPost['featured_image']?>" alt=""></div>
+                        <div class="post-content"><a class="post-title" href="./blog?id=<?=$relatedPost['blog_id']?>"><?=$relatedPost['title']?></a>
+                                <div class="post-meta d-flex align-items-center"><a href="catagory.html"><?=$relatedPost['category_name']?></a><a href="#"><?=date('d M y',strtotime($relatedPost['createdAt']))?></a></div>
+                        </div>
+                    </div>
+                <?php
+                   }else{
+                ?>
+                    <div class="single-trending-post d-flex">
+                            <p>No Related Post yet</p>
+                    </div>
+                    <?php
+                }
+                    ?>
             <?php
             }
             ?>
