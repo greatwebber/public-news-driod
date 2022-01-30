@@ -91,14 +91,18 @@ require_once './layouts/headerMain.php';
         <div class="container">
             <!-- Single Trending Post-->
             <?php
-            $stmt = $conn->query("SELECT b.title, b.featured_image,b.blog_id, b.createdAt,c.category_name FROM blogs b left join categories c on b.categories = c.category_id where b.blog_id !='$id' and b.blog_state = '$user_state' and b.categories='$categories' order by b.id desc limit 3");
-            $stmt->execute();
-            
-            while ($relatedPost = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $stmt3 = $conn->query("SELECT b.title, b.featured_image,b.blog_id, b.createdAt,c.category_name FROM blogs b left join categories c on b.categories = c.category_id where b.blog_id !='$id' and b.blog_state = '$user_state' and b.categories='$categories' order by b.id desc limit 3");
+            $stmt3->execute();
+
+            $checkRelatedPost = $stmt3->fetch(PDO::FETCH_ASSOC);
+
+            if($stmt3->rowCount()>0){
             ?>
                 <?php
-                if(!empty($relatedPost)){
-                ?>
+                $stmt = $conn->query("SELECT b.title, b.featured_image,b.blog_id, b.createdAt,c.category_name FROM blogs b left join categories c on b.categories = c.category_id where b.blog_id !='$id' and b.blog_state = '$user_state' and b.categories='$categories' order by b.id desc limit 3");
+                $stmt->execute();
+                while ($relatedPost = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
                     <div class="single-trending-post d-flex">
                         <div class="post-thumbnail"><img src="../assets/img/post/<?=$relatedPost['featured_image']?>" alt=""></div>
                         <div class="post-content"><a class="post-title" href="./blog?id=<?=$relatedPost['blog_id']?>"><?=$relatedPost['title']?></a>
@@ -106,18 +110,17 @@ require_once './layouts/headerMain.php';
                         </div>
                     </div>
                 <?php
-                   }else{
+                    }
                 ?>
-                    <div class="single-trending-post d-flex">
-                            <p>No Related Post yet</p>
-                    </div>
-                    <?php
-                }
-                    ?>
-            <?php
-            }
-            ?>
-
+                <?php
+                    }else{
+                ?>
+                <div class="single-trending-post d-flex bg-danger">
+                    <p class="text-white text-center">No Related Post Yet !</p>
+                </div>
+                <?php
+                    }
+                ?>
         </div>
     </div>
 
