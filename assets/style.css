@@ -1412,7 +1412,9 @@ textarea:invalid {
     -ms-flex: 0 0 80px;
     flex: 0 0 80px;
     max-width: 80px;
-    width: 80px; }
+    width: 80px;
+  }
+
     .single-trending-post .post-thumbnail .video-icon {
       position: absolute;
       z-index: 42;
@@ -1949,7 +1951,9 @@ textarea:invalid {
 .single-blog-thumbnail {
   position: relative;
   z-index: 1;
-  width: 100%; }
+  width: 100%;
+  height:100%;
+}
   .single-blog-thumbnail .post-bookmark {
     width: 36px;
     height: 36px;

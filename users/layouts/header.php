@@ -1,4 +1,5 @@
 <?php
+require_once '../session.php';
 if(!$_SESSION['login']){
     redirect('../login.php');
 }
@@ -44,10 +45,9 @@ if(!$_SESSION['login']){
     <!-- Time - Weather-->
     <div class="time-date-weather-wrapper text-center py-5" style="background-image: url('img/bg-img/1.jpg')">
         <div class="weather-update mb-4">
-            <l class="icon lni lni-cloudy-sun"></l>
-            <h4 class="mb-1">92°F</h4>
-            <h6 class="mb-0">Dhaka</h6>
-            <p class="mb-0">Mostly sunny</p>
+            <l class="icon lni lni-network"></l>
+            <br>
+            <h6 class="mb-0"><?=user_details('name')?> News</h6>
         </div>
         <div class="time-date">
             <div id="dashboardDate"></div>

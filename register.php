@@ -1,11 +1,7 @@
 <?php
 $page_title = "Home";
 require_once './include/config.php';
-
-
-//exit();
 require_once './layouts/header.php';
-
 ?>
 
 <?php flash(); ?>

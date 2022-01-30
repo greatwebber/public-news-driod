@@ -3,6 +3,8 @@
 include 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
+
+
 function inputValidation($value): string
 {
     return trim(htmlspecialchars(htmlentities($value)));
@@ -13,7 +15,7 @@ function redirect($url){
 }
 function user_details($value){
     global $conn;
-    $sql = "SELECT * FROM users WHERE acct_email =:acct_email";
+    $sql = "SELECT * FROM users u left join states s on u.acct_state = s.id WHERE u.acct_email =:acct_email";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'acct_email'=>$_SESSION['login']
@@ -31,6 +33,32 @@ function userStatus($value){
         $res = "Draft";
     }
     return $res;
+}
+
+function get_time_ago( $time ){
+    $time_difference = time() - $time;
+
+    if( $time_difference < 1 ) {
+        return 'less than 1 second ago';
+    }
+    $condition = array( 12 * 30 * 24 * 60 * 60 =>  'year',
+        30 * 24 * 60 * 60       =>  'mon',
+        24 * 60 * 60            =>  'day',
+        60 * 60                 =>  'hr',
+        60                      =>  'min',
+        1                       =>  'sec'
+    );
+
+    foreach( $condition as $secs => $str )
+    {
+        $d = $time_difference / $secs;
+
+        if( $d >= 1 )
+        {
+            $t = round( $d );
+            return 'about ' . $t . ' ' . $str . ( $t > 1 ? 's' : '' ) . ' ago';
+        }
+    }
 }
 
 function page_title($page_title = false){
@@ -165,6 +193,7 @@ if (isset($_POST['addPost'])){
     $blog_id = uniqid();
     $blog_author = $_POST['blog_author'];
     $blog_state = $_POST['blog_state'];
+    @$blog_author_id = $_POST['blog_author_id'];
 
     if($featured === null){
         $featuredsec = '0';
