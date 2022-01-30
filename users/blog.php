@@ -57,8 +57,7 @@ require_once './layouts/headerMain.php';
     <!-- Blog Description-->
     <div class="blog-description">
         <div class="container">
-            <p> <?= $blog['post']?>
-            </p>
+            <?= $blog['post']?>
         </div>
     </div>
 
@@ -123,6 +122,56 @@ require_once './layouts/headerMain.php';
                 ?>
         </div>
     </div>
+
+    <div class="container">
+        <div class="border-top"></div>
+    </div>
+    <!-- Blog Comments-->
+    <div class="live-video-comments">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h6 class="newsten-title video-comments-title mb-0">9 Comments</h6>
+                <!-- Sorting Button-->
+                <div class="comment-sorting-option">
+                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni lni-more"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right text-right">
+                        <button class="dropdown-item" type="button">Newest Comments</button>
+                        <button class="dropdown-item" type="button">Top Comments</button>
+                        <button class="dropdown-item" type="button">Most Likes Comments</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Comment Form-->
+            <div class="comment-form">
+                <form id="form"  method="POST">
+                    <textarea id="commentText" name="commenttext" cols="30" rows="20" placeholder="Write A Comment" style="resize:none"></textarea>
+                    <input type="text" id="post_id" value="<?=$id?>" hidden >
+                    <button class="mt-2 btn btn-primary " id="commentSubmit" type="submit">Comment</button>
+                </form>
+            </div>
+
+            <ul class="comments-list">
+                <!-- Single Comment Area-->
+
+                <li class="single-comment-wrap">
+                    <div class="d-flex mb-4">
+                        <div class="comment-author"><img src="img/bg-img/11.jpg" alt="author"></div>
+                        <div class="comment-meta">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="comment-author-info-wrap">
+                                    <h6 class="comments-author-name">Hello Dolly</h6><span class="post-date">58 min ago</span>
+                                </div>
+                                <div class="like-count d-flex align-items-center"><span>128</span><a class="like" href="single.html#"><i class="lni lni-heart"></i></a></div>
+                            </div>
+                            <p class="comment-text">Thanks guys, keep up the good work! The best on the net!</p><a class="reply reply-comment-btn" href="single.html#"><i class="mr-2 lni lni-reply"></i>Reply</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
 
 
 </div>

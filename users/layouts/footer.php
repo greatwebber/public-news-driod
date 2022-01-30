@@ -11,6 +11,38 @@
     </div>
 </div>
 <!-- All JavaScript Files-->
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (event) {
+            var formData = {
+                commentText: $("#commentText").val(),
+                postID: $("#post_id").val(),
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "./submitComment",
+                data: formData,
+                dataType: "json",
+                encode: true,
+            }).done(function (data) {
+                // console.log(data);
+               if(data.success){
+                   Snackbar.show({
+                       text: "Hello",
+                       actionTextColor: "#fff",
+                       backgroundColor: "danger",
+                       pos: "top-right",
+                       duration: "5000",
+                       actionText: "close"
+                   });
+               }
+            });
+
+            event.preventDefault();
+        });
+    });</script>
+
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
@@ -25,5 +57,6 @@
 <script src="../assets/js/default/date-clock.js"></script>
 <script src="../assets/js/default/dark-mode-switch.js"></script>
 <script src="../assets/js/default/active.js"></script>
+
 </body>
 </html>

@@ -9,6 +9,7 @@ require_once '../session.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags-->
     <!-- Title-->
     <title><?=page_title($page_title)?> </title>
