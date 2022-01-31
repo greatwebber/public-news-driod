@@ -99,8 +99,8 @@ require_once './layouts/header.php';
                 <?php
                 if($stmt->rowCount() <=0){
                 ?>
-                    <div class="single-trending-post d-flex">
-                            <p>No Trending Post Yet</p>
+                    <div class="single-trending-post d-flex bg-danger">
+                            <p class="text-white">No Trending Post Yet</p>
                     </div>
                     <?php
                 }else{

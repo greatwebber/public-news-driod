@@ -2,11 +2,11 @@
 <div class="footer-nav-area" id="footerNav">
     <div class="newsten-footer-nav h-100">
         <ul class="h-100 d-flex align-items-center justify-content-between">
-            <li class="active"><a href="home.html"><i class="lni lni-home"></i></a></li>
-            <li><a href="catagory.html"><i class="lni lni-grid-alt"></i></a></li>
-            <li><a href="trending.html"><i class="lni lni-bolt-alt"></i></a></li>
-            <li><a href="pages.html"><i class="lni lni-heart"></i></a></li>
-            <li><a href="bookmark.html"><i class="lni lni-bookmark"></i></a></li>
+            <li class="<?php active('home');?>"><a href="./home"><i class="lni lni-home"></i></a></li>
+            <li class="<?php active('category');?>"><a href="./category"><i class="lni lni-grid-alt"></i></a></li>
+            <li class="<?php active('trending');?>"><a href="./trending"><i class="lni lni-bolt-alt"></i></a></li>
+            <li class="<?php active('page');?>"><a href="pages.html"><i class="lni lni-heart"></i></a></li>
+            <li class="<?php active('bookmark');?>"><a href="bookmark.html"><i class="lni lni-bookmark"></i></a></li>
         </ul>
     </div>
 </div>

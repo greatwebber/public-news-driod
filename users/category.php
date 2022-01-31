@@ -2,14 +2,10 @@
 require_once '../include/config.php';
 
 $page_title ="Category";
-
-
 //if(!$_GET['id']){
 //    redirect('./home.php');
 //    exit();
 //}
-
-
 require_once './layouts/headerMain.php';
 
 ?>

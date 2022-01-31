@@ -61,6 +61,14 @@ function get_time_ago( $time ){
     }
 }
 
+function active($currect_page){
+    $url_array =  explode('/', $_SERVER['REQUEST_URI']) ;
+    $url = end($url_array);
+    if($currect_page === $url){
+        echo 'active';
+    }
+}
+
 function page_title($page_title = false){
     if ($page_title !== false){
       return $page_title." - ".WEB_TITLE;
