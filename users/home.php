@@ -85,7 +85,7 @@ require_once './layouts/header.php';
     <div class="trending-news-wrapper">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between mb-3">
-                <h5 class="mb-0 pl-1 newsten-title">Trending</h5><a class="btn btn-primary btn-sm" href="trending.html">View All</a>
+                <h5 class="mb-0 pl-1 newsten-title">Trending</h5><a class="btn btn-primary btn-sm" href="./trending">View All</a>
             </div>
         </div>
         <div class="container">
@@ -198,7 +198,7 @@ require_once './layouts/header.php';
     <div class="for-you-news-wrapper">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <h5 class="mb-0 pl-1 newsten-title">For You</h5><a class="btn btn-primary btn-sm" href="./home#">View All</a>
+                <h5 class="mb-0 pl-1 newsten-title">For You</h5><a class="btn btn-primary btn-sm" href="./blogs">View All</a>
             </div>
         </div>
         <div class="container">

@@ -120,8 +120,6 @@ function flash(){
     }
 }
 
-
-
 if(isset($_POST['loginSubmit'])){
     $acct_email = $_POST['acct_email'];
     $password = $_POST['password'];
@@ -262,11 +260,6 @@ if (isset($_POST['addPost'])){
 
 
 }
-
-
-
-
-
 
 
 class message{
