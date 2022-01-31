@@ -37,7 +37,7 @@ require_once './layouts/headerMain.php';
 
 
                 ?>
-                <div class="card catagory-card"><a href="single-catagory.html"><img src="../assets/img/category/<?=$cat['category_image']?>" alt="">
+                <div class="card catagory-card"><a href="./single-category?id=<?=$cat['category_id']?>"><img src="../assets/img/category/<?=$cat['category_image']?>" alt="">
                         <h6><?=ucwords($cat['category_name'])?></h6></a></div>
                 <?php
                 }

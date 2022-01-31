@@ -28,6 +28,7 @@ require_once './layouts/header.php';
                         <th>Category</th>
                         <th>Author</th>
                         <th>Tags</th>
+                        <th>Blog State</th>
                         <th>Featured</th>
                         <th>Status</th>
                         <th>Created At</th>
@@ -37,7 +38,7 @@ require_once './layouts/header.php';
                     </thead>
                     <tbody>
                     <?php
-                    $stmt = $conn->query('SELECT * FROM blogs b left join categories c on b.categories = c.category_id order by b.id DESC');
+                    $stmt = $conn->query('SELECT * FROM blogs b left join categories c on b.categories = c.category_id left join states s on b.blog_state = s.id order by b.id DESC');
                     $stmt->execute();
                     $sn =1;
                     while ($cat = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -51,6 +52,7 @@ require_once './layouts/header.php';
                             <td><?=ucwords($cat['category_name'])?></td>
                             <td><?=ucwords($cat['blog_author'])?></td>
                             <td><?=$cat['tags']?></td>
+                            <td><?=$cat['name']?></td>
                             <td><?=userStatus($cat['featured'])?></td>
                             <td><?=userStatus($cat['blog_status'])?></td>
                             <td><?=$cat['createdAt']?></td>
@@ -71,6 +73,7 @@ require_once './layouts/header.php';
                         <th>Category</th>
                         <th>Author</th>
                         <th>Tags</th>
+                        <th>Blog State</th>
                         <th>Featured</th>
                         <th>Status</th>
                         <th>Created At</th>

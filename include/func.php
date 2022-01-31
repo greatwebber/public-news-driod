@@ -15,7 +15,7 @@ function redirect($url){
 }
 function user_details($value){
     global $conn;
-    $sql = "SELECT * FROM users u left join states s on u.acct_state = s.id WHERE u.acct_email =:acct_email";
+    $sql = "SELECT u.id,u.acct_state,u.acct_image,u.acct_email,s.name FROM users u left join states s on u.acct_state = s.id WHERE u.acct_email =:acct_email";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'acct_email'=>$_SESSION['login']

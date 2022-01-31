@@ -19,7 +19,13 @@ require_once './layouts/headerMain.php';
                     <h6><?=ucwords(user_details('full_name'))?></h6>
                     <p>User</p>
                     <div class="user-meta-data d-flex align-items-center justify-content-between">
-                        <p class="mx-1"><span class="counter">432</span><span>Articles</span></p>
+                        <?php
+                        $stmt = $conn->query("SELECT * FROM blogs WHERE blog_author_id = '$user_id'");
+                        $stmt->execute();
+
+                        $count = $stmt->rowCount();
+                        ?>
+                        <p class="mx-1"><span class="counter"><?=$count?></span><span>Articles</span></p>
                     </div>
                 </div>
             </div>
@@ -56,79 +62,33 @@ require_once './layouts/headerMain.php';
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <h6 class="mb-3 newsten-title">My Articles</h6>
-                <h6 class="mb-3 line-height-1">432 Posts</h6>
+                <h6 class="mb-3 line-height-1"><?=$count?> Posts</h6>
             </div>
         </div>
         <div class="container">
             <!-- Single News Post-->
+
+            <?php
+
+            $stmt = $conn->query("SELECT b.title,b.featured_image,b.createdAt,b.categories,b.blog_id,c.category_name FROM blogs b left join categories c on b.categories = c.category_id WHERE b.blog_author_id = '$user_id' order by b.id DESC");
+            $stmt->execute();
+            
+            while ($blog = $stmt->fetch(PDO::FETCH_ASSOC)){
+            ?>
+
             <div class="single-news-post d-flex align-items-center bg-gray">
                 <div class="post-thumbnail">
-                    <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/20.jpg" alt="">
+                    <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/post/<?=$blog['featured_image']?>" alt="">
                 </div>
-                <div class="post-content"><a class="post-title" href="single.html">Morning walking &amp; running is good for health</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Habits</a><a href="profile#">1,799 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail"><img src="../assets/img/bg-img/21.jpg" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html">BD celebrate independence day in 26 march</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Planets</a><a href="profile#">2,152 views</a></div>
+                <div class="post-content"><a class="post-title" href="./blog?id=<?=$blog['blog_id']?>"><?=$blog['title']?></a>
+                    <div class="post-meta d-flex align-items-center"><a href="./single-category?id=<?=$blog['categories']?>"><?=$blog['category_name']?></a>
+                        <a href="profile#"><?=get_time_ago(strtotime($blog['createdAt']))?></a></div>
                 </div>
             </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail"><img src="../assets/img/bg-img/22.jpg" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html">Skating nowadays very popular sports in sea area</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Sports</a><a href="profile#">3,124 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail"><img src="../assets/img/bg-img/23.jpg" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html">The ship of the desert reducing rapidly in the world</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Camel</a><a href="profile#">1,625 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail">
-                    <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/24.jpg" alt="">
-                </div>
-                <div class="post-content"><a class="post-title" href="single.html">Why you will eat apple & banana every day</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Habits</a><a href="profile#">1,112 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail"><img src="../assets/img/bg-img/25.jpg" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html">Satellite now producing more waste on the planet</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Planet</a><a href="profile#">1,987 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail"><img src="../assets/img/bg-img/26.jpg" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html">Balcony gardening is a new trend of big cities</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Mayaj</a><a href="profile#">589 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail">
-                    <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/27.jpg" alt="">
-                </div>
-                <div class="post-content"><a class="post-title" href="single.html">The world is becoming polluted very fast and lives are being destroyed</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Nazrul</a><a href="profile#">2,789 views</a></div>
-                </div>
-            </div>
-            <!-- Single News Post-->
-            <div class="single-news-post d-flex align-items-center bg-gray">
-                <div class="post-thumbnail"><img src="../assets/img/bg-img/28.jpg" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html">Sea is polluted in a terrible way by human garbage</a>
-                    <div class="post-meta d-flex align-items-center"><a href="profile#">Suha</a><a href="profile#">3,785 views</a></div>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
 </div>

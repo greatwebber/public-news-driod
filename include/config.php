@@ -17,6 +17,7 @@ $web_url = WEB_URL;
 $email_message = new message();
 $sendMail = new emailMessage();
 @$user_state = user_details('acct_state');
+@$user_id = user_details('id');
 
 
 

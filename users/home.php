@@ -71,7 +71,7 @@ require_once './layouts/header.php';
                 while ($cat = $stmt->fetch(PDO::FETCH_ASSOC)){
                 ?>
                 <div class="card catagory-card">
-                    <a href="catagory.html"><img src="../assets/img/category/<?=$cat['category_image']?>" alt="" >
+                    <a href="./single-category?id=<?=$cat['category_id']?>"><img src="../assets/img/category/<?=$cat['category_image']?>" alt="" >
                         <h6><?=ucwords($cat['category_name'])?></h6>
                     </a>
                 </div>
@@ -91,17 +91,32 @@ require_once './layouts/header.php';
         <div class="container">
             <!-- Single Trending Post-->
             <?php
-            $stmt = $conn->query("SELECT * FROM blogs b right join categories c on b.categories = c.category_id  where b.featured =1 order by b.id DESC limit 3");
+            $stmt = $conn->query("SELECT * FROM blogs b right join categories c on b.categories = c.category_id  where b.featured =1 and b.blog_state = '$user_state' order by b.id DESC limit 3");
             $stmt->execute();
 
-            while($trending = $stmt->fetch(PDO::FETCH_ASSOC)){
+
             ?>
-            <div class="single-trending-post d-flex">
-                <div class="post-thumbnail"><img src="../assets/img/post/<?=$trending['featured_image']?>" alt=""></div>
-                <div class="post-content"><a class="post-title" href="single.html"><?=ucwords($trending['title'])?></a>
-                    <div class="post-meta d-flex align-items-center"><a href="catagory.html"><?=$trending['category_name']?></a><a href="./home#"><?=date('d M y',strtotime($trending['createdAt']))?></a></div>
-                </div>
-            </div>
+                <?php
+                if($stmt->rowCount() <=0){
+                ?>
+                    <div class="single-trending-post d-flex">
+                            <p>No Trending Post Yet</p>
+                    </div>
+                    <?php
+                }else{
+                    ?>
+                    <?php
+                        while($trending = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                        <div class="single-trending-post d-flex">
+                            <div class="post-thumbnail"><img src="../assets/img/post/<?=$trending['featured_image']?>" alt=""></div>
+                            <div class="post-content"><a class="post-title" href="./blog?id=<?=$trending['blog_id']?>"><?=ucwords($trending['title'])?></a>
+                                <div class="post-meta d-flex align-items-center"><a href="./single-category?id=<?=$trending['category_id']?>"><?=$trending['category_name']?></a><a href="./home#"><?=date('d M y',strtotime($trending['createdAt']))?></a></div>
+                            </div>
+                        </div>
+                    <?php
+                        }
+                    ?>
             <?php
             }
             ?>
@@ -200,7 +215,7 @@ require_once './layouts/header.php';
                 <div class="col-6 col-md-4">
                     <div class="single-recommended-post mt-3"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
                         <div class="post-thumbnail"><img src="../assets/img/post/<?=$check['featured_image']?>" alt=""></div>
-                        <div class="post-content"><a class="post-catagory" href="catagory.html"><?=$check['category_name']?></a><a class="post-title" href="single.html"><?=ucwords(substr($check['title'],0,30))?>...</a></div>
+                        <div class="post-content"><a class="post-catagory" href="./single-category?id=<?=$check['categories']?>"><?=$check['category_name']?></a><a class="post-title" href="./blog?id=<?=$check['blog_id']?>"><?=ucwords(substr($check['title'],0,20))?>...</a></div>
                     </div>
                 </div>
 
@@ -227,7 +242,7 @@ require_once './layouts/header.php';
                 <div class="tab-pane fade show active" id="nav-newest" role="tabpanel" aria-labelledby="nav-newest-tab">
                     <!-- Single News Post-->
                     <?php
-                    $stmt = $conn->prepare("SELECT b.title,b.createdAt,b.featured_image FROM blogs b where b.blog_status =1 and b.blog_state = :user_state order by b.id DESC");
+                    $stmt = $conn->prepare("SELECT b.title,b.createdAt,b.featured_image,b.blog_id FROM blogs b where b.blog_status =1 and b.blog_state = :user_state order by b.id DESC");
                     $stmt->execute([
                         'user_state'=>$user_state
                     ]);
@@ -238,7 +253,7 @@ require_once './layouts/header.php';
                         <div class="post-thumbnail">
                             <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/post/<?=$check['featured_image']?>" alt="">
                         </div>
-                        <div class="post-content"><a class="post-title" href="single.html"><?=$check['title']?></a>
+                        <div class="post-content"><a class="post-title" href="./blog?id=<?=$check['blog_id']?>"><?=$check['title']?></a>
                             <div class="post-meta d-flex align-items-center"><a href="./home#"><?=get_time_ago(strtotime($check['createdAt']))?></a></div>
                         </div>
                     </div>
