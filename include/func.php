@@ -18,10 +18,10 @@ function user_details($value){
     $sql = "SELECT u.id,u.acct_state,u.acct_image,u.acct_email,s.name FROM users u left join states s on u.acct_state = s.id WHERE u.acct_email =:acct_email";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
-        'acct_email'=>$_SESSION['login']
+        'acct_email'=>@$_SESSION['login']
     ]);
     $rs = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $rs[$value];
+    return @$rs[$value];
 }
 function userStatus($value){
     $res = null;

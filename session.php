@@ -9,7 +9,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
     session_destroy();
 
     notify_alert('Session Timeout','danger','3000','close');
-    redirect('../login.php');
+    header("Location:../login.php");
     exit();
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp

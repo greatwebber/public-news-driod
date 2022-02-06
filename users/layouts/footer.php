@@ -5,8 +5,8 @@
             <li class="<?php active('home');?>"><a href="./home"><i class="lni lni-home"></i></a></li>
             <li class="<?php active('category');?>"><a href="./category"><i class="lni lni-grid-alt"></i></a></li>
             <li class="<?php active('trending');?>"><a href="./trending"><i class="lni lni-bolt-alt"></i></a></li>
-            <li class="<?php active('page');?>"><a href="pages.html"><i class="lni lni-heart"></i></a></li>
-            <li class="<?php active('bookmark');?>"><a href="bookmark.html"><i class="lni lni-bookmark"></i></a></li>
+            <li class="<?php active('profile');?>"><a href="./profile"><i class="lni lni-user"></i></a></li>
+            <li class="<?php active('add-blog');?>"><a href="./add-blog"><i class="lni lni-circle-plus"></i></a></li>
         </ul>
     </div>
 </div>

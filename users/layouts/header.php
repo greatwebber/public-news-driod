@@ -33,9 +33,9 @@ if(!$_SESSION['login']){
         <!-- Navbar Toggler-->
         <div class="navbar--toggler" id="newstenNavbarToggler"><span></span><span></span><span></span><span></span></div>
         <!-- Logo-->
-        <div class="logo-wrapper"><a href="./home"><img src="../assets/img/core-img/logo.png" alt=""></a></div>
+        <div class=""><p class="text-center mt-3 text-black">FPE NEWS DRIOD</p></div>
         <!-- Search Form-->
-        <div class="search-form"><a href="search.html"><i class="fa fa-search"></i></a></div>
+        <div class="search-form"><a href="./profile"><i class="fa fa-user"></i></a></div>
     </div>
 </div>
 <!-- Sidenav Black Overlay-->
@@ -43,7 +43,7 @@ if(!$_SESSION['login']){
 <!-- Side Nav Wrapper-->
 <div class="sidenav-wrapper" id="sidenavWrapper">
     <!-- Time - Weather-->
-    <div class="time-date-weather-wrapper text-center py-5" style="background-image: url('img/bg-img/1.jpg')">
+    <div class="time-date-weather-wrapper text-center py-5" style="background-image: url('../assets/img/bg-img/1.jpg')">
         <div class="weather-update mb-4">
             <l class="icon lni lni-network"></l>
             <br>
@@ -62,7 +62,7 @@ if(!$_SESSION['login']){
     <ul class="sidenav-nav">
         <li><a href="live.html"><i class="lni lni-play"></i>Live<span class="red-circle ml-2 flashing-effect"></span></a></li>
         <li><a href="profile"><i class="lni lni-user"></i>My Profile</a></li>
-        <li><a href="pages.html"><i class="lni lni-files"></i>All Pages<span class="ml-2 badge badge-danger">HOT</span></a></li>
+        <li><a href="./trending"><i class="lni lni-hacker-news"></i>All Trending<span class="ml-2 badge badge-danger">HOT</span></a></li>
         <?php
         $stmt = $conn->query("SELECT * FROM categories");
         $stmt->execute();
@@ -70,7 +70,7 @@ if(!$_SESSION['login']){
         $check = $stmt->rowCount();
         ?>
         <li><a href="./category"><i class="lni lni-grid-alt"></i>All Category                <span class="ml-2 badge badge-warning"><?=$check?>+</span></a></li>
-        <li><a href="settings.html"><i class="lni lni-cog"></i>Settings</a></li>
+        <li><a href="./settings"><i class="lni lni-cog"></i>Settings</a></li>
         <li><a href="logout"><i class="lni lni-power-switch"></i>Logout</a></li>
     </ul>
     <!-- Go Back Button-->

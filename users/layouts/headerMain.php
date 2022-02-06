@@ -35,6 +35,6 @@ require_once '../session.php';
             <h6 class="mb-0"><?=$page_title?></h6>
         </div>
         <!-- Search Form-->
-        <div class="search-form"><a href="search.html"><i class="fa fa-search"></i></a></div>
+        <div class="search-form"><a href="./profile"><i class="fa fa-user"></i></a></div>
     </div>
 </div>
