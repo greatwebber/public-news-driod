@@ -46,15 +46,7 @@ require_once './layouts/headerMain.php';
                     </div>
                 </div>
             </div>
-            <div class="card settings-card">
-                <div class="card-body">
-                    <!-- Single Settings-->
-                    <div class="single-settings d-flex align-items-center justify-content-between">
-                        <div class="title"><i class="lni lni-question-circle"></i><span>About Developer</span></div>
-                        <div class="data-content"><a class="pl-4" href="contact.html"><i class="lni lni-chevron-right"></i></a></div>
-                    </div>
-                </div>
-            </div>
+
             <div class="card settings-card">
                 <div class="card-body">
                     <!-- Single Settings-->

@@ -60,7 +60,6 @@ if(!$_SESSION['login']){
     </div>
     <!-- Sidenav Nav-->
     <ul class="sidenav-nav">
-        <li><a href="live.html"><i class="lni lni-play"></i>Live<span class="red-circle ml-2 flashing-effect"></span></a></li>
         <li><a href="profile"><i class="lni lni-user"></i>My Profile</a></li>
         <li><a href="./trending"><i class="lni lni-hacker-news"></i>All Trending<span class="ml-2 badge badge-danger">HOT</span></a></li>
         <?php

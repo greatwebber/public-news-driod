@@ -8,9 +8,6 @@ require_once './layouts/header.php';
 ?>
 <?php flash(); ?>
 
-
-
-
 <!-- Main content -->
 <div class="col-xs-12">
 <section class="content">

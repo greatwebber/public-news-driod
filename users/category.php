@@ -61,7 +61,7 @@ require_once './layouts/headerMain.php';
                 ?>
                 <div class="col-6 col-sm-4">
                     <div class="card catagory-card mb-3"><a href="./single-category?id=<?=$catt['category_id']?>"><img src="../assets/img/category/<?=$catt['category_image']?>" alt="">
-                            <h6><?=$catt['category_name']." ("."10".")"?></h6></a></div>
+                            <h6><?=$catt['category_name'].""?></h6></a></div>
                 </div>
                 <?php
                 }

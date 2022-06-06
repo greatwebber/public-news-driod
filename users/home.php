@@ -141,56 +141,11 @@ require_once './layouts/header.php';
                     <div class="post-thumbnail">
                         <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/9.jpg" alt="">
                     </div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">Sports</a><a class="post-title d-block" href="single.html">Basketball is becoming popular young people</a>
+                    <div class="post-content"><a class="post-catagory" href="#">Sports</a><a class="post-title d-block" href="#">Basketball is becoming popular young people</a>
                         <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>30 March</a></div>
                     </div>
                 </div>
                 <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
-                    <div class="post-thumbnail"><img src="../assets/img/bg-img/14.jpg" alt=""></div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">Environment</a><a class="post-title d-block" href="single.html">We are responsible for environment pollution</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>16 March</a></div>
-                    </div>
-                </div>
-                <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
-                    <div class="post-thumbnail">
-                        <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/15.jpg" alt="">
-                    </div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">Cooking</a><a class="post-title d-block" href="single.html">How to make a crunchy toast biscuit in home</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>24 March</a></div>
-                    </div>
-                </div>
-                <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
-                    <div class="post-thumbnail"><img src="../assets/img/bg-img/10.jpg" alt=""></div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">World</a><a class="post-title d-block" href="single.html">World most top building is situated in New York city</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>22 March</a></div>
-                    </div>
-                </div>
-                <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
-                    <div class="post-thumbnail">
-                        <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/13.jpg" alt="">
-                    </div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">People</a><a class="post-title d-block" href="single.html">Massive riots in the city to establish rule of law</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>17 March</a></div>
-                    </div>
-                </div>
-                <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
-                    <div class="post-thumbnail"><img src="../assets/img/bg-img/6.jpg" alt=""></div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">Gadgets</a><a class="post-title d-block" href="single.html">International Robot Olympiad was held in March 2020</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>15 March</a></div>
-                    </div>
-                </div>
-                <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
-                    <div class="post-thumbnail"><img src="../assets/img/bg-img/7.jpg" alt=""></div>
-                    <div class="post-content"><a class="post-catagory" href="catagory.html">Health</a><a class="post-title d-block" href="single.html">Loses over 30kg on keto diet and one meal a day</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>19 March</a></div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

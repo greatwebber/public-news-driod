@@ -34,21 +34,17 @@ require_once './layouts/headerMain.php';
     <!-- Scroll Indicator-->
     <div id="scrollIndicator"></div>
     <!-- Single Blog Thumbnail-->
-    <div class="single-blog-thumbnail"><img class="w-100" src="../assets/img/post/<?=$blog['featured_image']?>" alt=""><a class="post-bookmark" href="single.html#"><i class="lni lni-bookmark"></i></a></div>
+    <div class="single-blog-thumbnail"><img class="w-100" src="../assets/img/post/<?=$blog['featured_image']?>" alt=""><a class="post-bookmark" href="##"><i class="lni lni-bookmark"></i></a></div>
     <!-- Single Blog Info-->
     <div class="single-blog-info">
         <div class="container">
             <div class="d-flex align-items-center">
                 <!-- Post Like Wrap-->
-                <div class="post-like-wrap">
-                    <!-- Favourite Post--><a class="post-love d-block" href="single.html#"><i class="lni lni-heart"></i></a><span class="d-block">368 Likes</span>
-                    <div class="line"></div>
-                    <!-- Share Post--><a class="post-share" href="single.html#" data-toggle="modal" data-target="#postShareModal"><i class="fa fa-share-alt"></i></a><span class="d-block">1,028</span>
-                </div>
+
                 <!-- Post Content Wrap-->
                 <div class="post-content-wrap"><a class="post-catagory d-inline-block mb-2" href="#"><?=$blog['category_name']?></a>
                     <h5 class="mb-2"><?=ucwords($blog['title'])?></h5>
-                    <div class="post-meta"><a class="post-date" href="single.html#"><?=date('d F',strtotime($blog['createdAt']))?></a><a class="post-views" href="single.html#">9,451 Views</a></div>
+                    <div class="post-meta"><a class="post-date" href="##"><?=date('d F',strtotime($blog['createdAt']))?></a><a class="post-views" href="##">9,451 Views</a></div>
                 </div>
             </div>
         </div>
@@ -64,7 +60,7 @@ require_once './layouts/headerMain.php';
     <!-- Post Author-->
     <div class="profile-content-wrapper">
         <!-- Settings Option-->
-<!--        <div class="profile-settings-option"><a href="single.html#" data-toggle="tooltip" data-placement="left" title="Follow"><i class="lni lni-plus"></i></a></div>-->
+<!--        <div class="profile-settings-option"><a href="##" data-toggle="tooltip" data-placement="left" title="Follow"><i class="lni lni-plus"></i></a></div>-->
         <div class="container">
             <!-- User Meta Data-->
             <div class="user-meta-data d-flex align-items-center">
@@ -127,53 +123,6 @@ require_once './layouts/headerMain.php';
         <div class="border-top"></div>
     </div>
     <!-- Blog Comments-->
-    <div class="live-video-comments">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-                <h6 class="newsten-title video-comments-title mb-0">9 Comments</h6>
-                <!-- Sorting Button-->
-                <div class="comment-sorting-option">
-                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="lni lni-more"></i></button>
-                    <div class="dropdown-menu dropdown-menu-right text-right">
-                        <button class="dropdown-item" type="button">Newest Comments</button>
-                        <button class="dropdown-item" type="button">Top Comments</button>
-                        <button class="dropdown-item" type="button">Most Likes Comments</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Comment Form-->
-            <div class="comment-form">
-                <form id="form"  method="POST">
-                    <textarea id="commentText" name="commenttext" cols="30" rows="20" placeholder="Write A Comment" style="resize:none"></textarea>
-                    <input type="text" id="post_id" value="<?=$id?>" hidden >
-                    <button class="mt-2 btn btn-primary " id="commentSubmit" type="submit">Comment</button>
-                </form>
-            </div>
-
-            <ul class="comments-list">
-                <!-- Single Comment Area-->
-
-                <li class="single-comment-wrap">
-                    <div class="d-flex mb-4">
-                        <div class="comment-author"><img src="img/bg-img/11.jpg" alt="author"></div>
-                        <div class="comment-meta">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <div class="comment-author-info-wrap">
-                                    <h6 class="comments-author-name">Hello Dolly</h6><span class="post-date">58 min ago</span>
-                                </div>
-                                <div class="like-count d-flex align-items-center"><span>128</span><a class="like" href="single.html#"><i class="lni lni-heart"></i></a></div>
-                            </div>
-                            <p class="comment-text">Thanks guys, keep up the good work! The best on the net!</p><a class="reply reply-comment-btn" href="single.html#"><i class="mr-2 lni lni-reply"></i>Reply</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-
-
 </div>
 
 <?php
