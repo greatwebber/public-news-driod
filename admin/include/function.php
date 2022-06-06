@@ -77,6 +77,12 @@ if(isset($_POST['addAuthor'])) {
     }
 }
 
+function fetchDetails($value){
+    global $conn;
+    $stmt = $conn->query("SELECT * FROM $value ");
+    return $stmt->rowCount();
+}
+
 
 
 

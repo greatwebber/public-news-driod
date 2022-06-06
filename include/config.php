@@ -1,7 +1,7 @@
 <?php
 
 define("WEB_TITLE", "Fpe News Droid");
-define("WEB_URL", "localhost");
+define("WEB_URL", "http://localhost/php/ede-project/news-droid/");
 define("WEB_TEL","+123456789");
 define("WEB_EMAIL","support@fpenewsdroid.com");
 define("WEB_ADDRESS","Federal Polytechnic Ede, Osun State");

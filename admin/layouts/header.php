@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION['admin'])){
+    redirect(WEB_URL."auth/login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
