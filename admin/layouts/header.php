@@ -130,6 +130,12 @@ if(!isset($_SESSION['admin'])){
 
                     </ul>
                 </li>
+
+                <li>
+                    <a href="./ads">
+                        <i class="fa fa-plus"></i> <span>Add Ads</span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

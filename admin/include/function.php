@@ -34,8 +34,6 @@ if(isset($_POST['addCategorySubmit'])) {
 
         if(true){
             notify_alert('Category Added Successfully','success','3000','close');
-        }else{
-            notify_alert('Sorry Something went wrong','danger','2000','close');
         }
     }
 }
@@ -73,6 +71,37 @@ if(isset($_POST['addAuthor'])) {
             notify_alert('Category Added Successfully','success','3000','close');
         }else{
             notify_alert('Sorry Something went wrong','danger','2000','close');
+        }
+    }
+}
+
+if(isset($_POST['addAdvertisementSubmit'])){
+    $title = inputValidation($_POST['title']);
+    $url = inputValidation($_POST['url']);
+    if (isset($_FILES['image'])) {
+        $file = $_FILES['image'];
+        $name = $file['name'];
+
+        $path = pathinfo($name, PATHINFO_EXTENSION);
+
+        $allowed = array('jpg', 'png', 'jpeg');
+
+
+        $folder = "../assets/img/category/";
+        $n = inputValidation($category_name) . $name;
+
+        $destination = $folder . $n;
+    }
+    if (move_uploaded_file($file['tmp_name'], $destination)) {
+        $stmt = $conn->prepare('INSERT INTO ads (title,url,image) VALUES (:title,:url,:image)');
+        $stmt->execute([
+            'title'=>$title,
+            'url'=>$url,
+            'image'=>$n
+        ]);
+
+        if(true){
+            notify_alert('Ads Added Successfully','success','3000','close');
         }
     }
 }

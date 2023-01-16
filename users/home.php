@@ -130,21 +130,32 @@ require_once './layouts/header.php';
         <div class="bg-shape2" style="background-image: url('img/core-img/edito2.png')"></div>
         <div class="container">
             <div class="editorial-choice-title text-center mb-4"><i class="lni lni-protection"></i>
-                <h6 class="newsten-title">Editorial Choice</h6>
+                <h6 class="newsten-title">Ads</h6>
             </div>
         </div>
         <div class="container">
             <!-- Editorial Choice News Slide-->
             <div class="editorial-choice-news-slide owl-carousel">
                 <!-- Single Slide-->
-                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="./home#"><i class="lni lni-bookmark"></i></a>
+                <?php
+                $stmt = $conn->prepare('SELECT * FROM ads order by id desc');
+                $stmt->execute();
+
+                while ($ads = $stmt->fetch(PDO::FETCH_ASSOC)){
+                ?>
+                <div class="single-editorial-slide d-flex"><a class="bookmark-post" href="<?=$ads['url']?>"><i class="lni lni-bookmark"></i></a>
                     <div class="post-thumbnail">
-                        <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/bg-img/9.jpg" alt="">
+                        <div class="video-icon"><i class="lni lni-play"></i></div><img src="../assets/img/category/<?=$ads['image']?>" alt="">
                     </div>
-                    <div class="post-content"><a class="post-catagory" href="#">Sports</a><a class="post-title d-block" href="#">Basketball is becoming popular young people</a>
-                        <div class="post-meta d-flex align-items-center"><a href="./home#"><i class="mr-1 fa fa-user-o"></i>Nazrul</a><a href="./home#"><i class="mr-1 fa fa-clock-o"></i>30 March</a></div>
+                    <div class="post-content"><a class="post-catagory" href="<?=$ads['url']?>">Ads</a><a class="post-title d-block" href="<?=$ads['url']?>"><?=$ads['title']?></a>
+                        <div class="post-meta d-flex align-items-center"><i class="mr-1 fa fa-clock-o"></i><?=get_time_ago(strtotime($ads['created_at']))?></a></div>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
+
+
                 <!-- Single Slide-->
             </div>
         </div>
